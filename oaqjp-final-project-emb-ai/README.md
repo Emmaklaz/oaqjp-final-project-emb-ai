@@ -1,31 +1,58 @@
 # Final project
 
-IBM Watson NLP Emotion Detection application.
+## Emotion Detection Application
 
-## Project structure
+A Flask web application that uses the Watson NLP emotion detection service to analyze text for anger, disgust, fear, joy, and sadness, and identify the dominant emotion.
 
-- `EmotionDetection/emotion_detection.py` - Watson NLP emotion detection function.
-- `EmotionDetection/__init__.py` - EmotionDetection package initializer.
-- `test_emotion_detection.py` - Unit tests.
-- `server.py` - Flask web server.
-- `templates/index.html` - Web interface.
-- `static/mywebscript.js` - Browser-side interaction.
-- `requirements.txt` - Python dependencies.
+## Project Structure
 
-## Run
-
-```bash
-python -m pip install -r requirements.txt
-python server.py
+```text
+oaqjp-final-project-emb-ai/
+├── EmotionDetection/
+│   ├── __init__.py
+│   └── emotion_detection.py
+├── static/
+│   └── mywebscript.js
+├── templates/
+│   └── index.html
+├── server.py
+├── test_emotion_detection.py
+├── requirements.txt
+└── README.md
 ```
 
-Then open http://127.0.0.1:5000
-
-## Test
+## Installation
 
 ```bash
-python -m unittest test_emotion_detection.py
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+## Testing
+
+```bash
+python -m unittest -v
+```
+
+The unit tests mock Watson responses, so they can verify the application logic without requiring access to the remote Watson service.
+
+## Static analysis
+
+```bash
 pylint server.py
 ```
 
-The Watson NLP service requires internet access.
+## Run the application
+
+```bash
+python server.py
+```
+
+Open `http://localhost:5000`.
+
+Blank input returns:
+
+```text
+Invalid input! Try again.
+```
